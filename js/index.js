@@ -12,3 +12,19 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 });
+
+function mostrarUser(){
+    if(localStorage.getItem("mi_user")){
+        document.getElementById("userPortada").innerHTML=``
+        mi_user_json=localStorage.getItem("mi_user");
+        mi_user=JSON.parse(mi_user_json);
+        for(let userOne of mi_user){ 
+        document.getElementById("userPortada").innerHTML =
+        userOne ;
+    }
+};
+}
+document.addEventListener("DOMContentLoaded", function(){
+    localStorage.getItem("mi_user");
+    mostrarUser()
+    });
