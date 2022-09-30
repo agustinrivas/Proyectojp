@@ -9,6 +9,11 @@ let maxCount = undefined;
 //array donde se cargarán los datos recibidos:
 let listaAutos101 = [];
 
+function redireccionar(id) {
+    localStorage.setItem("productosID", id);
+    window.location = "product-info.html"
+}
+
 function mostrarAutos(){
 
     let htmlA101 = "";
@@ -18,7 +23,7 @@ function mostrarAutos(){
     if (((minCount == undefined) || (minCount != undefined && parseInt(datos.cost) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(datos.cost) <= maxCount))){
             htmlA101 += `
-            <div onclick="setCatID(${datos.id})" class="list-group-item list-group-item-action cursor-active">
+            <div onclick="redireccionar(${datos.id})" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
                         <img src="${datos.image}" alt="${datos.description}" class="img-thumbnail">
